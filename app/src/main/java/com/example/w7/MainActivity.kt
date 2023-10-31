@@ -2,6 +2,8 @@ package com.example.w7
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.ListView
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,8 @@ class MainActivity : AppCompatActivity() {
                 "Example description Example description Example description Example description",if (i <= 12) "$i:00 AM" else "${i-12}:00 PM"))
         }
         val adapter = MyCustomAdapter(itemList)
-        val listView = findViewById<ListView>(R.id.listView)
-        listView.adapter = adapter
+        val rcView : RecyclerView = findViewById(R.id.RVLayout)
+        rcView.layoutManager = LinearLayoutManager(this)
+        rcView.adapter = adapter
     }
 }
